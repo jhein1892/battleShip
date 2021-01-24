@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,63 +13,148 @@
 
 <body>
   <%- include('partials/_header') %>
- <div class="container">
-   <div class="row">
-     <div class="col">
-       <h3 style="text-align: center;"><u>Previous moves</u></h3>
-     </div>
-    <div class= "col-6">
-  <table class="table table-bordered" style="text-align: center; background-color: rgb(94, 183, 213); margin-top: 7%;">
-    <thead style="background-color: darkgray;">
-       <th scope="col">X</th>
-       <th scope="col">A</th>
-       <th scope="col">B</th>
-       <th scope="col">C</th>
-       <th scope="col">D</th>
-       <th scope="col">E</th>
-       <th scope="col">F</th>
-       <th scope="col">G</th>
-       <th scope="col">H</th>
-    </thead>
-    <tbody>
-      <% for (let i = 1; i < 9; i++) { %>
-      <tr>
-        <% for (let j = 0; j < 9; j++) { %>
-          <% if (j === 0) { %>
-        <td style="background-color:darkgray;">
-            <p><%= i %></p>
-          </td>
-        <%  } else { %>
-          <td>
-            
-          </td>
-          <% } %>
-        </td>
-        <% } %>
-      </tr>
-      <% } %>
-    </tbody>
-  </table>
-</div>
-<div class="col" style="text-align: center;">
-  <h3><u> Ships left</u></h3>  
-</div>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h3 style="text-align: center;"><u>Previous moves</u></h3>
+      </div>
+      <div class="col-6">
+        <table class="table table-bordered"
+          style="text-align: center; background-color: rgb(94, 183, 213); margin-top: 7%;">
+          <thead style="background-color: darkgray;">
+            <th scope="col">X</th>
+            <th scope="col">A</th>
+            <th scope="col">B</th>
+            <th scope="col">C</th>
+            <th scope="col">D</th>
+            <th scope="col">E</th>
+            <th scope="col">F</th>
+            <th scope="col">G</th>
+            <th scope="col">H</th>
+          </thead>
+          <tbody>
+            <% for (let i = 1; i < 9; i++) { %>
+            <tr>
+              <% for (let j = 0; j < 9; j++) { %>
+              <% if (j === 0) { %>
+              <td style="background-color:darkgray;">
+                <p><%= i %></p>
+              </td>
+              <%  } else { %>
+              <td>
 
-</div> 
-</div> 
-     
+              </td>
+              <% } %>
+              </td>
+              <% } %>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+      <div class="col" style="text-align: center;">
+        <h3><u> Ships left</u></h3>
+      </div>
+
+    </div>
+  </div>
+  <div class="contiainer" style="margin-top: 30px;">
+    <div class="row">
+      <div class="col-1">
+      </div>
+      <form style="text-align: center;" action="/game" method="POST">
+      <div class="col" style="text-align: center;">
+          <label for="carrier">
+            <h5><em><u>Carrier (<i>5 tiles</i>)</u></em></h5>
+          </label>
+          </br>
+          <label for="carrierStart">Start:</label>
+          <input name="carrierStart" type="text" style="max-width: 50px;">
+          <ul  class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li class="dropdown-item">A</li>
+            <li class="dropdown-item">B</li>
+          </ul>
+          </br>
+          <label for="carrierFinish">Finish:</label>
+          <input name="carrierFinish" type="text" style="max-width: 50px;">
+          </br>
+          <button type="submit" class="btn btn-primary btn-sm" style="margin-top: 10px;">Place Ship</button>
+      </div>
+    </form>
+      <div class="col" style="text-align: center;">
+        <form action="" style="text-align: center;">
+          <label for="carrier">
+            <h5><em><u>Battleship (<i>4 tiles</i>)</u></em></h5>
+          </label>
+          </br>
+          <label for="carrier-start">Start:</label>
+          <input type="text" style="max-width: 50px;">
+          </br>
+          <label for="carrier-finish">Finish:</label>
+          <input type="text" style="max-width: 50px;">
+          </br>
+          <button type="button" class="btn btn-primary btn-sm" style="margin-top: 10px;">Place Ship</button>
+        </form>
+      </div>
+      <div class="col" style="text-align: center;">
+        <form action="" style="text-align: center;">
+          <label for="carrier">
+            <h5><em><u>Cruiser (<i>3 tiles</i>)</u></em></h5>
+          </label>
+          </br>
+          <label for="carrier-start">Start:</label>
+          <input type="text" style="max-width: 50px;">
+          </br>
+          <label for="carrier-finish">Finish:</label>
+          <input type="text" style="max-width: 50px;">
+          </br>
+          <button type="button" class="btn btn-primary btn-sm" style="margin-top: 10px;">Place Ship</button>
+        </form>
+      </div>
+      <div class="col" style="text-align: center;">
+        <form action="" style="text-align: center;">
+          <label for="carrier">
+            <h5><em><u>Submarine (<i>3 tiles</i>)</u></em></h5>
+          </label>
+          </br>
+          <label for="carrier-start">Start:</label>
+          <input type="text" style="max-width: 50px;">
+          </br>
+          <label for="carrier-finish">Finish:</label>
+          <input type="text" style="max-width: 50px;">
+          </br>
+          <button type="button" class="btn btn-primary btn-sm" style="margin-top: 10px;">Place Ship</button>
+        </form>
+      </div>
+      <div class="col" style="text-align: center;">
+        <form action="" style="text-align: center;">
+          <label for="carrier">
+            <h5><em><u>Destroyer (<i>2 tiles</i>)</u></em></h5>
+          </label>
+          </br>
+          <label for="carrier-start">Start:</label>
+          <input type="text" style="max-width: 50px;">
+          </br>
+          <label for="carrier-finish">Finish:</label>
+          <input type="text" style="max-width: 50px;">
+          </br>
+          <button type="button" class="btn btn-primary btn-sm" style="margin-top: 10px;">Place Ship</button>
+        </form>
+      </div>
+      <div class="col-1">
+      </div>
+    </div>
+  </div>
+
+
+  <form method="GET" action="/game">
+    <button type="submit" class="btn btn-danger">Start Game</button>
+  </form>
 
 
 
-   
-<form method="GET" action="/game">
-<button type="submit" class="btn btn-danger">Start Game</button>
-</form>
 
 
-
-
- 
   <!-- Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
@@ -78,6 +164,5 @@
   </script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-  </script>  
+  </script>
 </body>
-
