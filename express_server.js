@@ -16,7 +16,7 @@ function generateRandomString() {
 
 // Databases: 
 
-let ShipSpots = {
+let shipSpots = {
   carrier: [],
   battleship: [],
   cruiser: [],
@@ -38,15 +38,14 @@ app.get('/home', (req, res) => [
 ]);
 app.post('/game', (req, res) => {
   let gameNum = generateRandomString()
-  console.log(req.body.carrierStart)
-  ShipSpots[gameNum] = {
+  shipSpots[gameNum] = {
     carrier: [req.body.carrierStart, req.body.carrierFinish],
-    battleship: [],
-    cruiser: [],
-    submarine: [],
-    destroyer: []
-  }
-  console.log(ShipSpots[gameNum])
+    battleship: [req.body.battleshipStart, req.body.battleshipFinish],
+    cruiser: [req.body.cruiserStart, req.body.cruiserFinish],
+    submarine: [req.body.submarineStart, req.body.submarineFinish],
+    destroyer: [req.body.destroyerStart, req.body.destroyerFinish]
+  }; 
+  console.log(shipSpots[gameNum])
   res.render('game')
 });
 app.get('/game', (req,res) => {
