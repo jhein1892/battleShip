@@ -54,7 +54,16 @@
       </div>
       <div class="col" style="text-align: center;">
         <h3><u> Ships left</u></h3>
-        
+        <% if (myGame) { %>
+           
+          <p>Your Carrier: <%= myGame.carrier %></p> 
+          <p>Your Battleship: <%= myGame.battleship %></p> 
+          <p>Your Cruiser: <%= myGame.cruiser %></p>
+          <p>Your Submarine: <%= myGame.submarine %></p> 
+          <p>Your Destroyer: <%= myGame.destroyer %></p> 
+          <% } else { %>
+          <p>place you're ships</p>  
+          <% } %>
       </div>
 
     </div>

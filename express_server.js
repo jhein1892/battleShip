@@ -45,8 +45,12 @@ app.post('/game', (req, res) => {
     submarine: [req.body.submarineStart, req.body.submarineFinish],
     destroyer: [req.body.destroyerStart, req.body.destroyerFinish]
   }; 
+
+  const templateVars = {
+    myGame: shipSpots[gameNum]
+  };
   console.log(shipSpots[gameNum])
-  res.render('game')
+  res.render('game', templateVars)
 });
 app.get('/game', (req,res) => {
   console.log(req.body)
